@@ -7,17 +7,9 @@
         </div>
     </div>
     <div class="genreContainer">
-        <a routerLink="Selp-help/booklist" class="genreBox">
+        <a routerLink="{{genre}}/booklist" class="genreBox" *ngFor="let genre of genres">
             <div class="genreImage"><img src="https://cdn-icons-png.flaticon.com/512/8317/8317139.png" alt="bookFolder" /></div>
-            <div class="genreVal">Selp-help</div>
-        </a>
-        <a routerLink="Buisness/booklist" class="genreBox">
-            <div class="genreImage"><img src="https://cdn-icons-png.flaticon.com/512/8317/8317139.png" alt="bookFolder" /></div>
-            <div class="genreVal">Buisness</div>
-        </a>
-        <a routerLink="Personal-finance/booklist" class="genreBox">
-            <div class="genreImage"><img src="https://cdn-icons-png.flaticon.com/512/8317/8317139.png" alt="bookFolder" /></div>
-            <div class="genreVal">Personal-finance</div>
+            <div class="genreVal">{{genre}}</div>
         </a>
     </div>
 

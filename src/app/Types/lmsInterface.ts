@@ -2,7 +2,7 @@ export interface lms {
     bookId : number,
     bookName : string,
     bookAuthor : string,
-    genres : string ,
+    genre : string ,
     addedBy : string,
     price : number,
     lastViewed : Date,

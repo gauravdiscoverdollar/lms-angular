@@ -10,8 +10,8 @@ export class LmsService {
     bookName: "Managing Oneself",
     bookAuthor: "Peter Drucker",
     price : 250,
-    desc : "Originally published: 7 January 2008",
-    genres : "Self-help",
+    desc : "Originally published: 2008",
+    genre : "Self-help",
     status : 'active',
     favourite : false,
     lastViewed : new Date(),
@@ -22,8 +22,8 @@ export class LmsService {
     bookName: "The Miracle Morning",
     bookAuthor: "The Miracle Morning",
     price : 175,
-    desc : "Originally published: 7 December 2012",
-    genres : "Self-help",
+    desc : "Originally published: 2012",
+    genre : "Self-help",
     status : 'active',
     favourite : false,
     lastViewed : new Date(),
@@ -34,8 +34,8 @@ export class LmsService {
     bookName: "Rich Dad Poor Dad",
     bookAuthor: "Robert Kiyosaki",
     price : 200,
-    desc : "Originally published: 7 December 2018",
-    genres : "Personal-finance",
+    desc : "Originally published: 2018",
+    genre : "Personal-finance",
     status : 'active',
     favourite : false,
     lastViewed : new Date(),
@@ -46,8 +46,8 @@ export class LmsService {
     bookName: "The Psychology of Money",
     bookAuthor: "Morgan Housel",
     price : 300,
-    desc : "Originally published: 8 September 2020",
-    genres : "Personal-finance",
+    desc : "Originally published: 2020",
+    genre : "Personal-finance",
     status : 'active',
     favourite : false,
     lastViewed : new Date(),
@@ -59,18 +59,26 @@ export class LmsService {
     bookAuthor: "Simon Sinek",
     price : 290,
     desc : "Originally published: 2009",
-    genres : "Business",
+    genre : "Buisness",
     status : 'active',
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
   }
 ]
-  genres : object = ['Selp-help','Business','Personal-finance'];
+  genres : object = ['Self-help','Buisness','Personal-finance'];
   constructor() { }
 
   getGenresList(){
     return this.genres;
+  }
+
+
+   getBookListByGenre(genre:string){
+    let booklist: lms[] = this.books.filter((val)=>{
+      return val.genre == genre && val.status != 'deleted';
+    })
+    return booklist;
   }
   
 

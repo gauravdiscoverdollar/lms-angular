@@ -7,7 +7,7 @@ import { LmsService } from 'src/app/Services/lms.service';
   styleUrls: ['./genres.component.css']
 })
 export class GenresComponent implements OnInit {
-  genres : object = [];
+  genres : any = [];
   constructor(private _lmsService: LmsService) { }
 
   ngOnInit(): void {
