@@ -1,3 +1,14 @@
-<app-navbar></app-navbar>
-<app-login *ngIf="!isLoggedIn"></app-login>
-<app-lms-dashboard *ngIf="isLoggedIn"></app-lms-dashboard>
+<app-navbar [drawer]="drawer"></app-navbar>
+    
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      
+    </mat-drawer>
+    <div class="example-sidenav-content">
+        <app-login *ngIf="!isLoggedIn"></app-login>
+        <app-lms-dashboard *ngIf="isLoggedIn"></app-lms-dashboard>
+       
+    </div>
+</mat-drawer-container>

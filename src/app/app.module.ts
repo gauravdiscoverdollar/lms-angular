@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LmsDashboardComponent } from './Components/lms-dashboard/lms-dashboard.component';
 import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialAPIs } from './materialExports';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,13 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialAPIs
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
