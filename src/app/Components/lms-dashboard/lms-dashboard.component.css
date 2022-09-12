@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.dashboard{
+    margin: 20px;
+}
+#dashboard-heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 25px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#dashboardLink {
+    position: relative;
+}
+#dashboardLink a{
+    text-decoration: none;
+    color: #3f51b5;
+    font-size: larger;
+}
+#homeIcon{
+    position: absolute;
+    color: #3f51b5;
+    left: -25px;
+    top: -3px;
+}
