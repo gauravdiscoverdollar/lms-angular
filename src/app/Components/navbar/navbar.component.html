@@ -7,7 +7,11 @@
     </button>
     <span>Library Management System</span>
     <span class="example-spacer"></span>
-    
-
-    <button mat-raised-button>Login</button>
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <p mat-menu-item class="center">Gaurav Singh</p>
+      <p mat-menu-item class="center">gaurav.singh323@gmail.com</p>
+      <button mat-menu-item class="center">Sign Out</button>
+    </mat-menu>
 </mat-toolbar>
