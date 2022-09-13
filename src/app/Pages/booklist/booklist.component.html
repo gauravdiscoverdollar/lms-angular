@@ -27,7 +27,7 @@
             </div>
             <img src="https://cdn-icons-png.flaticon.com/512/2698/2698378.png" alt="price-tag" class="priceTag">
             <span class="price">₹ {{book.price}}</span>
-            <button class="archive" matTooltip="Move this book to Archive.">
+            <button class="archive" matTooltip="Move this book to Archive." (click)="moveToArchive(book.bookId)">
                 <mat-icon >archive</mat-icon>
             </button>
 

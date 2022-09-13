@@ -12,7 +12,7 @@ export class LmsService {
     price : 250,
     desc : "Originally published: 2008",
     genre : "Self-help",
-    status : 'active',
+    archive : false,
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
@@ -24,7 +24,7 @@ export class LmsService {
     price : 175,
     desc : "Originally published: 2012",
     genre : "Self-help",
-    status : 'active',
+    archive : false,
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
@@ -36,7 +36,7 @@ export class LmsService {
     price : 200,
     desc : "Originally published: 2018",
     genre : "Personal-finance",
-    status : 'active',
+    archive : false,
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
@@ -48,7 +48,7 @@ export class LmsService {
     price : 300,
     desc : "Originally published: 2020",
     genre : "Personal-finance",
-    status : 'active',
+    archive : false,
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
@@ -60,7 +60,7 @@ export class LmsService {
     price : 290,
     desc : "Originally published: 2009",
     genre : "Buisness",
-    status : 'active',
+    archive : false,
     favourite : false,
     lastViewed : new Date(),
     addedBy : "Gaurav Singh"
@@ -75,18 +75,26 @@ export class LmsService {
 
 
   getNewBookId(){
-    return 10100 + this.books.length;
+    return 10101 + this.books.length;
   }
 
    getBookListByGenre(genre:string){
     let booklist: lms[] = this.books.filter((val)=>{
-      return val.genre == genre && val.status != 'deleted';
+      return val.genre == genre && val.archive != true;
     })
     return booklist;
   }
   
   addBookToBookList(book:lms){
     this.books.push(book);
+  }
+
+  addBookToArchive(bookId:number){
+    this.books.map(val=>{
+      if(val.bookId === bookId){
+        val.archive = true;
+      }
+    })
   }
 
 }

@@ -7,7 +7,7 @@ export interface lms {
     price : number,
     lastViewed : Date,
     favourite : boolean,
-    status : string,
+    archive : boolean,
     desc : string
 
 }
