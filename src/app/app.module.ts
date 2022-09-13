@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialAPIs } from './materialExports';
 import { GenresComponent } from './Pages/genres/genres.component';
 import { BooklistComponent } from './Pages/booklist/booklist.component';
+import { AddBookComponent } from './Pages/add-book/add-book.component';
+import { FormsModule } from '@angular/forms';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { BooklistComponent } from './Pages/booklist/booklist.component';
     LoginComponent,
     NavbarComponent,
     GenresComponent,
-    BooklistComponent
+    BooklistComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialAPIs
+    FormsModule,
+    MaterialAPIs,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

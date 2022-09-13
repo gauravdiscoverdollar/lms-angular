@@ -1,0 +1,43 @@
+<div class="addBookContainer">
+    <button mat-mini-fab color="warn" mat-dialog-close style="float: right;font-weight: 900;top: -4px;">X</button>
+    <h1 mat-dialog-title>Add Book</h1><hr>
+    <div mat-dialog-content>
+        <form (ngSubmit)="addBook(addBookForm)" #addBookForm="ngForm">
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Book Id</mat-label>
+                <input matInput type="number" value="{{bookId}}" readonly required name="bookId">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Book Name</mat-label>
+                <input matInput type="text" required name="bookName" ngModel>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Book Author</mat-label>
+                <input matInput type="text" required name="bookAuthor" ngModel>
+            </mat-form-field>
+           
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <mat-select required name="genre" ngModel>
+                    <mat-option *ngFor="let genre of genres" value="{{genre}}">{{genre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Price</mat-label>
+                <input matInput type="number" class="example-right-align" placeholder="0" required name="price" ngModel>
+                <span matPrefix>₹&nbsp;</span>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Published Year</mat-label>
+                <mat-select required name="desc" ngModel>
+                    <mat-option *ngFor="let year of years" value="{{year}}">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div style="text-align: end;margin-right: 5px;">
+                <button mat-raised-button color="primary" type="submit">Add</button>
+            </div>
+        </form>
+        
+    </div>
+
+</div>

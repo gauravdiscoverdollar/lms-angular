@@ -6,11 +6,11 @@
   <mat-drawer-container class="example-container" autosize>
       <mat-drawer #drawer class="example-sidenav" mode="side">
         <p>Auto-resizing sidenav</p>
-        
+         <button mat-raised-button color="warn" (click)="openDialog()">Add Book</button>
       </mat-drawer>
       <div class="example-sidenav-content">
           <router-outlet></router-outlet>
-        
       </div>
   </mat-drawer-container>
 </div>
+<lib-ng-toast></lib-ng-toast>

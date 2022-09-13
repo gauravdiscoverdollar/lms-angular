@@ -5,7 +5,7 @@ import { lms } from '../Types/lmsInterface';
   providedIn: 'root'
 })
 export class LmsService {
-  books : lms[] = [{
+  private books : lms[] = [{
     bookId: 101,
     bookName: "Managing Oneself",
     bookAuthor: "Peter Drucker",
@@ -66,13 +66,17 @@ export class LmsService {
     addedBy : "Gaurav Singh"
   }
 ]
-  genres : object = ['Self-help','Buisness','Personal-finance'];
+  private genres : object = ['Self-help','Buisness','Personal-finance'];
   constructor() { }
 
   getGenresList(){
     return this.genres;
   }
 
+
+  getNewBookId(){
+    return 10100 + this.books.length;
+  }
 
    getBookListByGenre(genre:string){
     let booklist: lms[] = this.books.filter((val)=>{
@@ -81,5 +85,8 @@ export class LmsService {
     return booklist;
   }
   
+  addBookToBookList(book:lms){
+    this.books.push(book);
+  }
 
 }
