@@ -1,73 +1,22 @@
 import { Injectable } from '@angular/core';
 import { lms } from '../Types/lmsInterface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LmsService {
-  private books : lms[] = [{
-    bookId: 101,
-    bookName: "Managing Oneself",
-    bookAuthor: "Peter Drucker",
-    price : 250,
-    desc : "Originally published: 2008",
-    genre : "Self-help",
-    archive : false,
-    favourite : false,
-    lastViewed : new Date(),
-    addedBy : "Gaurav Singh"
-  },
-  {
-    bookId: 102,
-    bookName: "The Miracle Morning",
-    bookAuthor: "The Miracle Morning",
-    price : 175,
-    desc : "Originally published: 2012",
-    genre : "Self-help",
-    archive : false,
-    favourite : false,
-    lastViewed : new Date(),
-    addedBy : "Gaurav Singh"
-  },
-  {
-    bookId: 103,
-    bookName: "Rich Dad Poor Dad",
-    bookAuthor: "Robert Kiyosaki",
-    price : 200,
-    desc : "Originally published: 2018",
-    genre : "Personal-finance",
-    archive : false,
-    favourite : false,
-    lastViewed : new Date(),
-    addedBy : "Gaurav Singh"
-  },
-  {
-    bookId: 104,
-    bookName: "The Psychology of Money",
-    bookAuthor: "Morgan Housel",
-    price : 300,
-    desc : "Originally published: 2020",
-    genre : "Personal-finance",
-    archive : false,
-    favourite : false,
-    lastViewed : new Date(),
-    addedBy : "Gaurav Singh"
-  },
-  {
-    bookId: 105,
-    bookName: "Start with Why",
-    bookAuthor: "Simon Sinek",
-    price : 290,
-    desc : "Originally published: 2009",
-    genre : "Buisness",
-    archive : false,
-    favourite : false,
-    lastViewed : new Date(),
-    addedBy : "Gaurav Singh"
+export class LmsService{
+  private books! : lms[];
+  private genres : object = ['Self-help','Buisness','Personal-finance','Historical','Thriller','Romance'];
+
+  constructor(private _auth: AuthService) { 
+   
   }
-]
-  private genres : object = ['Self-help','Buisness','Personal-finance'];
-  constructor() { }
+
+  getBookListFromLocalStorage(){
+    let bookData :any = localStorage.getItem('books');
+    this.books =  JSON.parse(bookData);
+  }
 
   getGenresList(){
     return this.genres;
@@ -87,6 +36,7 @@ export class LmsService {
   
   addBookToBookList(book:lms){
     this.books.push(book);
+    localStorage.setItem('books',JSON.stringify(this.books));
   }
 
   addBookToArchive(bookId:number){
@@ -94,6 +44,36 @@ export class LmsService {
       if(val.bookId === bookId){
         val.archive = true;
       }
+    })
+    localStorage.setItem('books',JSON.stringify(this.books));
+  }
+
+
+  removeBookFromArchive(bookId:number){
+    this.books.map(val=>{
+      if(val.bookId === bookId){
+        val.archive = false;
+      }
+    })
+    localStorage.setItem('books',JSON.stringify(this.books));
+  }
+
+  getArchiveBookList(){
+    return this.books.filter((val)=>{
+      return val.archive == true;
+    })
+  }
+
+  addToFavourite(bookId:number){
+    if(!this._auth.user.favouriteList.includes(bookId)){
+      this._auth.user.favouriteList.push(bookId);
+    }
+  }
+
+  getFavouriteBooklist(){
+    let data:any = this._auth.user.favouriteList;
+    return this.books.filter((val)=>{
+      return data.includes(val.bookId);
     })
   }
 

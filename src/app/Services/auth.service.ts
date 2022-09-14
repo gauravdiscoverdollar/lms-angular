@@ -27,6 +27,7 @@ export class AuthService {
           this.user = val;
           this.isLoggedIn = true;
           data = "Login Successfull";
+          localStorage.setItem('currentUser',this.user.id)
           this.checkLoggedIn.next(true);
         }
       }
@@ -36,7 +37,28 @@ export class AuthService {
     }
     // console.log("User",this.user)
     return data;
+  }
+
+
+  getCurrentUser(){
+    let currentUserId:any = localStorage.getItem('currentUser');
+    let users:any = localStorage.getItem('users');
+    users = JSON.parse(users);
     
+    let currentUser:any = users[parseInt(currentUserId)];
+    console.log("Ckksk",currentUser)
+    if(currentUser){
+      this.user = currentUser;
+      this.isLoggedIn = true;
+      this.checkLoggedIn.next(true);
+    }
+  }
+
+  logout(){
+    localStorage.removeItem('currentUser');
+    this.user = null;
+    this.isLoggedIn = false;
+    this.checkLoggedIn.next(false);
   }
 
 }

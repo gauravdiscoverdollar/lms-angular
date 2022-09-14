@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Combo&family=Noto+Sans:wght@100&family=Truculenta:opsz,wght@12..72,100&display=swap');
+
+.dashboard{
+    margin: 20px;
+}
+.dashboard-heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 25px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.dashboardLink {
+    position: relative;
+}
+.dashboardLink a{
+    text-decoration: none;
+    color: #3f51b5;
+    font-size: larger;
+}
+.homeIcon{
+    position: absolute;
+    color: #3f51b5;
+    left: -25px;
+    top: -3px;
+}
+
+.booklist{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bookBox{
+    height: 250px;
+    width: 200px;
+    margin: 10px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.favourite{
+    position: absolute; 
+    top: -9px;  
+}
+.favourite mat-icon{
+    font-size: xx-large;
+    height: auto;
+    width: auto;
+    color: darkgray;
+}
+.favourite mat-icon:hover{
+    color: gray;
+}
+.booktitle{
+    background: #3f51b5;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: large;
+    margin-top: 40px;
+    padding: 5px;
+    text-align: center;
+}
+.bookAuthor{
+    /* font-family: 'Combo', cursive; */
+    /* font-family: 'Cedarville Cursive', cursive; */
+    font-family: 'Truculenta', sans-serif;
+    text-align: right;
+    font-size: small;
+    margin-right: 2px;
+    font-weight: bolder;
+}
+
+.desc{
+    text-align: right;
+    position: absolute;
+    width: 100%;
+    bottom: 27px;
+    background: #f27475;
+}
+.desc span{
+    background: #f27475;
+    color: white;
+    padding: 2px;
+    font-size: smaller;
+}
+
+.bookPoster{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+}
+.bookPoster img{
+    width: 165px;
+}
+.priceTag{
+    width: 40px;
+    position: absolute;
+    bottom: 15px;
+    left: 11px;
+}
+
+.price{
+    position: absolute;
+    bottom: -2px;
+    left: 15px;
+    font-size: smaller;
+}
+
+.archive{
+    position: absolute;
+    color: gray;
+    bottom: -10px;
+    right: -9px;
+    font-size: x-large;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+.archive:hover{
+    color: crimson;
+}
+.archive mat-icon{
+    font-size: xx-large;
+    height: auto;
+    width: auto;
+}
+.genre{
+    position: absolute;
+    top: 21px;
+    right: 3px;
+    color: #3f51b5;
+    font-size: xx-small;
+}

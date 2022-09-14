@@ -12,7 +12,6 @@ export class GenresComponent implements OnInit {
 
   ngOnInit(): void {
     this.genres = this._lmsService.getGenresList();
-    console.log(this.genres);
   }
 
 }

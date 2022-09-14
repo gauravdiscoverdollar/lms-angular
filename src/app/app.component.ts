@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { AddBookComponent } from './Pages/add-book/add-book.component';
 import { AuthService } from './Services/auth.service';
+import { LmsService } from './Services/lms.service';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +11,26 @@ import { AuthService } from './Services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit,OnDestroy{
-  isLoggedIn: boolean = false;
+  isLoggedIn: boolean = true;
   title = 'lms-Dashboard';
   checkLoginSubscription : Subscription = new Subscription() ;
-
-  constructor(private dialog: MatDialog, private _auth : AuthService){
-
+  genres : any = [];
+  constructor(private dialog: MatDialog, private _auth : AuthService,private _lms: LmsService){
+    this._lms.getBookListFromLocalStorage();
   }
   ngOnDestroy(): void {
     this.checkLoginSubscription.unsubscribe();
     throw new Error('Method not implemented.');
   }
   ngOnInit(): void {
+    this._auth.getCurrentUser();
     this.checkLoginSubscription =  this._auth.checkLoggedIn.subscribe(data=>{
+      console.log("AppTrigger",data)
       this.isLoggedIn = data;
+      this.genres = this._lms.getGenresList();
+      this._lms.getBookListFromLocalStorage();
     })
-
+    // this.genres = this._lms.getGenresList();
   }
   
   checkLoggedIn(check:boolean) {

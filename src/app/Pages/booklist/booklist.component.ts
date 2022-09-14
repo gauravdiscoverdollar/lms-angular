@@ -16,9 +16,15 @@ export class BooklistComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log("Genre Clicked", this.route.snapshot.paramMap.get('genre'));
-    this.genre =  this.route.snapshot.paramMap.get('genre');
-    this.booklist = this._lmsService.getBookListByGenre(this.genre);
+    // this.genre =  this.route.snapshot.paramMap.get('genre');
+    // this.booklist = this._lmsService.getBookListByGenre(this.genre);
     // console.log("Booklist",this.booklist)
+
+    this.route.params.subscribe(params => {
+      this.genre = params['category'];
+      this.genre =  this.route.snapshot.paramMap.get('genre');
+      this.booklist = this._lmsService.getBookListByGenre(this.genre);
+    });
   }
 
   moveToArchive(bookId:number){
@@ -33,5 +39,7 @@ export class BooklistComponent implements OnInit {
         this.router.navigate([currentUrl]);
     });
   }
-
+  addToFavourite(bookId:number){
+    this._lmsService.addToFavourite(bookId);
+  }
 }

@@ -8,3 +8,10 @@
 .example-sidenav {
 padding: 20px;
 }
+
+mat-drawer-container{
+    min-height: 600px;
+}
+.sidebarButton{
+    width: 110px;
+}

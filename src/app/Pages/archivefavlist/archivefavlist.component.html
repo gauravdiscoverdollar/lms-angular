@@ -1,14 +1,14 @@
 <div class="dashboard">
     <div class="dashboard-heading">
-        <h1>{{genre}} Books</h1>
+        <h1>{{category}} List</h1>
         <div class="dashboardLink">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" class="homeIcon"></mat-icon>
-            <a href="#Home">Home</a>/<a routerLink="">Genre</a>/<a>{{genre}}</a>
+            <a routerLink="dashboard">Home</a>/<a>{{category}}</a>
         </div>
     </div>
     <div class="booklist">
         <div class="bookBox" *ngFor="let book of booklist">
-            <button mat-icon-button matTooltip="Add to Favourite." (click)="addToFavourite(book.bookId)" class="favourite">
+            <button *ngIf="!archive" mat-icon-button matTooltip="Add to Favourite." class="favourite">
                 <mat-icon >bookmark_add</mat-icon>
             </button>
             <div class="booktitle">
@@ -26,9 +26,16 @@
                 <img src="./../../../assets/images/poster.png" alt="poster"/>
             </div>
             <img src="https://cdn-icons-png.flaticon.com/512/2698/2698378.png" alt="price-tag" class="priceTag">
+            <div class="genre">
+                <b>Genre </b>{{book.genre}}
+            </div>
             <span class="price">₹ {{book.price}}</span>
-            <button class="archive" matTooltip="Move this book to Archive." (click)="moveToArchive(book.bookId)">
+
+            <button *ngIf="!archive" class="archive" matTooltip="Move this book to Archive." (click)="moveToArchive(book.bookId)">
                 <mat-icon >archive</mat-icon>
+            </button>
+            <button *ngIf="archive" class="archive" matTooltip="Restore Your Book" (click)="removeFromArchive(book.bookId)">
+                <mat-icon >restore</mat-icon>
             </button>
 
         </div>

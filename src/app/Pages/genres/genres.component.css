@@ -28,6 +28,7 @@
 .genreContainer{
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 .genreBox{
     text-decoration: none;
@@ -55,3 +56,4 @@
 .genreVal{
     text-align: center;
 }
+

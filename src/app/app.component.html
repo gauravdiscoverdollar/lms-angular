@@ -5,8 +5,29 @@
 
   <mat-drawer-container class="example-container" autosize>
       <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p>Auto-resizing sidenav</p>
-         <button mat-raised-button color="warn" (click)="openDialog()">Add Book</button>
+        <p> <button mat-raised-button color="warn" (click)="openDialog()" class="sidebarButton">Add Book</button></p>
+        <p>
+          <button mat-button color="primary" [matMenuTriggerFor]="genre" class="sidebarButton">Genre</button>
+          <mat-menu #genre="matMenu">
+            <a  routerLink="" mat-menu-item [matMenuTriggerFor]="genrelist" >Genre List</a>
+          </mat-menu>
+          <mat-menu #genrelist="matMenu">
+            <a *ngFor="let genre of genres" routerLink="{{genre}}/booklist" mat-menu-item>{{genre}}</a>
+          </mat-menu>
+        </p>
+        <p> <a routerLink="booklist/archives" mat-raised-button color="primary" class="sidebarButton">Archives</a> </p>
+        <p> <a routerLink="booklist/favourites" mat-raised-button color="primary" class="sidebarButton">Favourites</a> </p>
+        <p>
+          <button mat-button [matMenuTriggerFor]="times">Recently Viewed</button>
+          <mat-menu #times="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="last">Last</button>
+          </mat-menu>
+          <mat-menu #last="matMenu">
+            <button mat-menu-item >10 Minutes</button>
+            <button mat-menu-item >1 Hour</button>
+            <button mat-menu-item >5 Hour</button>
+          </mat-menu>
+        </p>
       </mat-drawer>
       <div class="example-sidenav-content">
           <router-outlet></router-outlet>

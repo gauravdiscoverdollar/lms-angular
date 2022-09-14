@@ -13,6 +13,7 @@ import { BooklistComponent } from './Pages/booklist/booklist.component';
 import { AddBookComponent } from './Pages/add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
+import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgToastModule } from 'ng-angular-popup';
     NavbarComponent,
     GenresComponent,
     BooklistComponent,
-    AddBookComponent
+    AddBookComponent,
+    ArchivefavlistComponent,
   ],
   imports: [
     BrowserModule,
