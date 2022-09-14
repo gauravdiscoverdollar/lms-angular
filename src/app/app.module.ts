@@ -11,7 +11,7 @@ import { MaterialAPIs } from './materialExports';
 import { GenresComponent } from './Pages/genres/genres.component';
 import { BooklistComponent } from './Pages/booklist/booklist.component';
 import { AddBookComponent } from './Pages/add-book/add-book.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
@@ -29,6 +29,7 @@ import { NgToastModule } from 'ng-angular-popup';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialAPIs,
     NgToastModule
   ],
