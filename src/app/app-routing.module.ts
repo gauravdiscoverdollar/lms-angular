@@ -6,6 +6,7 @@ import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.c
 import { BooklistComponent } from './Pages/booklist/booklist.component';
 import { GenresComponent } from './Pages/genres/genres.component';
 import { LastviewlistComponent } from './Pages/lastviewlist/lastviewlist.component';
+import { ViewbookComponent } from './Pages/viewbook/viewbook.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'booklist/lastview/:number',
     component:LastviewlistComponent
+  },
+  {
+    path:'view/book/:bookid',
+    component: ViewbookComponent
   }
 ];
 

@@ -31,6 +31,7 @@ export class BooklistComponent implements OnInit {
     // console.log("Archive Clicked",bookId)
     this._lmsService.addBookToArchive(bookId);
     this.toast.success({detail:"Success",summary:`Book Archived`,duration:2000});
+    
     this.reloadCurrentRoute();
   }
   reloadCurrentRoute() {
@@ -39,7 +40,5 @@ export class BooklistComponent implements OnInit {
         this.router.navigate([currentUrl]);
     });
   }
-  addToFavourite(bookId:number){
-    this._lmsService.addToFavourite(bookId);
-  }
+  
 }

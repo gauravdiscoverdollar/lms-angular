@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="genreContainer">
-        <a routerLink="{{genre}}/booklist" class="genreBox" *ngFor="let genre of genres">
+        <a routerLink="/{{genre}}/booklist" class="genreBox" *ngFor="let genre of genres">
             <div class="genreImage"><img src="https://cdn-icons-png.flaticon.com/512/8317/8317139.png" alt="bookFolder" /></div>
             <div class="genreVal">{{genre}}</div>
         </a>

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from 'src/app/Services/auth.service';
 import { LmsService } from 'src/app/Services/lms.service';
 import { lms } from 'src/app/Types/lmsInterface';
 
@@ -16,7 +17,7 @@ export class AddBookComponent implements OnInit {
   years: [number] =[2022];
   newbook! :lms;
   bookId! : number;
-  constructor(private _lmsService: LmsService,private dialog: MatDialog, private toast: NgToastService,private router: Router) {
+  constructor(private _lmsService: LmsService,private dialog: MatDialog, private toast: NgToastService,private router: Router,private _auth:AuthService) {
     
    }
 
@@ -35,9 +36,9 @@ export class AddBookComponent implements OnInit {
         return;
       }
     }
-    book.addedBy = "Gaurav Singh";
+    book.addedBy = this._auth.user.name;
     book.lastViewed = new Date;
-    book.status = "active";
+    book.archive = false;
     book.bookId = this.bookId;
     book.desc = "Published in Year: " + book.desc;
     this.newbook = book;

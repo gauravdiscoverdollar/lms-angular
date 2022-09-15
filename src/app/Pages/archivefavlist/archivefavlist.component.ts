@@ -54,6 +54,12 @@ export class ArchivefavlistComponent implements OnInit {
     this.reloadCurrentRoute();
   }
 
+  removeToFavourite(bookId:number){
+    this._lms.removeFromFavourite(bookId);
+    this.toast.success({detail:"Success",summary:`Book Removed From Favourite`,duration:2000});
+    this.reloadCurrentRoute();
+  }
+
   reloadCurrentRoute() {
     const currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {

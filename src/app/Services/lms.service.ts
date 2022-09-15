@@ -39,7 +39,23 @@ export class LmsService{
     localStorage.setItem('books',JSON.stringify(this.books));
   }
 
+
+  getBookByBookId(bookId:number){
+    let book;
+    let newBooks = this.books.filter((val)=>{
+      if(val.bookId==bookId){
+        book = val;
+        val.lastViewed = new Date;
+      }
+      return val;
+    })
+    // console.log("NEw",newBooks)
+    localStorage.setItem('books',JSON.stringify(newBooks));
+    return book;
+  }
+
   addBookToArchive(bookId:number){
+
     this.books.map(val=>{
       if(val.bookId === bookId){
         val.archive = true;
@@ -65,15 +81,31 @@ export class LmsService{
   }
 
   addToFavourite(bookId:number){
+
     if(!this._auth.user.favouriteList.includes(bookId)){
       this._auth.user.favouriteList.push(bookId);
     }
+    let usersData: any = localStorage.getItem('users');
+    usersData = JSON.parse(usersData);
+    usersData[this._auth.user.id] = this._auth.user;
+    localStorage.setItem('users',JSON.stringify(usersData));
+
+
+  }
+  removeFromFavourite(bookId:number){
+    this._auth.user.favouriteList = this._auth.user.favouriteList.filter((item:number)=> {
+      return item !== bookId
+    })
+    let usersData: any = localStorage.getItem('users');
+    usersData = JSON.parse(usersData);
+    usersData[this._auth.user.id] = this._auth.user;
+    localStorage.setItem('users',JSON.stringify(usersData));
   }
 
   getFavouriteBooklist(){
     let data:any = this._auth.user.favouriteList;
     return this.books.filter((val)=>{
-      return data.includes(val.bookId);
+      return data.includes(val.bookId) && val.archive == false;
     })
   }
 
@@ -100,7 +132,7 @@ export class LmsService{
     }else{
       return;
     }
-    return this.books.filter((item) => (new Date(item.lastViewed).getTime() > Date.now() - lastTime));
+    return this.books.filter((item) => (new Date(item.lastViewed).getTime() > Date.now() - lastTime) && item.archive == false);
   }
 
 }

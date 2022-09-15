@@ -1,0 +1,35 @@
+<div class="dashboard">
+    <div class="dashboard-heading">
+        <h1>Book Detail</h1>
+        <div class="dashboardLink">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" class="homeIcon"></mat-icon>
+            <a routerLink="">Home</a>/<a routerLink="/genres">Genre</a>/<a routerLink="/{{book.genre}}/booklist">{{book.genre}}</a>
+        </div>
+    </div>
+    <div class="bookContainer">
+        <h2 class="bookTitle"></h2>
+        <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"><mat-icon>book</mat-icon></div>
+              <mat-card-title class="bookTitle">{{book.bookName}}<mat-card-subtitle class="subtitle">{{book.genre}}</mat-card-subtitle></mat-card-title>
+              <mat-card-subtitle class="subtitle">
+                By {{book.bookAuthor}}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>First published in {{book.desc}}, "Slaughterhouse-Five" is an anti-war novel about Billy Pilgrim, who becomes a chaplain's assistant in the US. Army during World War II. While the story begins with Billy's childhood and continues years after the war, Billy occasionally travels through time to reflect upon his life, humanity, and the devastating effects of war.</h3>
+              <h2>
+                <button *ngIf="!isFavourite" mat-icon-button matTooltip="Add to Favourite." (click)="addToFavourite(book.bookId)" class="favourite">
+                  <mat-icon >bookmark_add</mat-icon>
+                </button>
+                <button *ngIf="isFavourite" mat-icon-button matTooltip="Remove From Favourite." (click)="removeToFavourite(book.bookId)" class="favourite">
+                  <mat-icon >bookmark_remove</mat-icon>
+                </button>
+                Price ₹ {{book.price}}.00
+              </h2> 
+              <h3 style="text-align: right;color:gray">Published in {{book.desc}}</h3>
+            </mat-card-content>
+            
+          </mat-card>
+    </div>
+</div>
