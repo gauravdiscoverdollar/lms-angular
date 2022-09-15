@@ -17,6 +17,7 @@ import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.c
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BarComponent } from './Graphs/bar/bar.component';
 import { LineComponent } from './Graphs/line/line.component';
+import { LastviewlistComponent } from './Pages/lastviewlist/lastviewlist.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LineComponent } from './Graphs/line/line.component';
     AddBookComponent,
     ArchivefavlistComponent,
     BarComponent,
-    LineComponent
+    LineComponent,
+    LastviewlistComponent
   ],
   imports: [
     BrowserModule,

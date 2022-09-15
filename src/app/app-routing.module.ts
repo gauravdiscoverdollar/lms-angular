@@ -5,6 +5,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.component';
 import { BooklistComponent } from './Pages/booklist/booklist.component';
 import { GenresComponent } from './Pages/genres/genres.component';
+import { LastviewlistComponent } from './Pages/lastviewlist/lastviewlist.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path:'booklist/:category',
     component: ArchivefavlistComponent
+  },
+  {
+    path:'booklist/lastview/:number',
+    component:LastviewlistComponent
   }
 ];
 

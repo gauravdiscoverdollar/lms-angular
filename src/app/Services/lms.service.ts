@@ -100,8 +100,7 @@ export class LmsService{
     }else{
       return;
     }
-    let booklist = this.books.filter((item) => (new Date(item.lastViewed).getTime() > Date.now() - lastTime));
-    console.log("Booklist Last",booklist)
+    return this.books.filter((item) => (new Date(item.lastViewed).getTime() > Date.now() - lastTime));
   }
 
 }

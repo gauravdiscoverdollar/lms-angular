@@ -23,9 +23,9 @@
             <button mat-menu-item [matMenuTriggerFor]="last">Last</button>
           </mat-menu>
           <mat-menu #last="matMenu">
-            <button mat-menu-item >10 Minutes</button>
-            <button mat-menu-item >1 Hour</button>
-            <button mat-menu-item >5 Hour</button>
+            <a routerLink="/booklist/lastview/0" mat-menu-item >10 Minutes</a>
+            <a routerLink="/booklist/lastview/1" mat-menu-item >1 Hour</a>
+            <a routerLink="/booklist/lastview/2" mat-menu-item >5 Hour</a>
           </mat-menu>
         </p>
       </mat-drawer>
