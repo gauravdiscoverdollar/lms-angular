@@ -8,11 +8,11 @@ import { GenresComponent } from './Pages/genres/genres.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component : LmsDashboardComponent
   },
   {
-    path: '',
+    path: 'genres',
     component: GenresComponent
   },
   {

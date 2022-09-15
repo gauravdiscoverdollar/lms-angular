@@ -14,6 +14,9 @@ import { AddBookComponent } from './Pages/add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BarComponent } from './Graphs/bar/bar.component';
+import { LineComponent } from './Graphs/line/line.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.c
     BooklistComponent,
     AddBookComponent,
     ArchivefavlistComponent,
+    BarComponent,
+    LineComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { ArchivefavlistComponent } from './Pages/archivefavlist/archivefavlist.c
     FormsModule,
     ReactiveFormsModule,
     MaterialAPIs,
-    NgToastModule
+    NgToastModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

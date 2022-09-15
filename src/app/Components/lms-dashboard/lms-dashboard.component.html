@@ -3,8 +3,16 @@
         <h1>Dashboard</h1>
         <div id="dashboardLink">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" id="homeIcon"></mat-icon>
-            <a href="#Home">Home</a>/<a href="#Dashboard">Dashboard</a>
+            <a routerLink="">Home</a>/<a>Dashboard</a>
         </div>
     </div>
-
+    <div class="container">
+        <div class="barGraphContainer">
+            <app-bar></app-bar>
+        </div><br>
+        <div class="lineGraphContainer">
+            <app-line></app-line>
+        </div>
+    </div>
 </div>
+

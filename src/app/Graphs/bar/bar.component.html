@@ -1,0 +1,21 @@
+<div>
+    <h2>
+        Number of Books in Each Genre
+    </h2>
+    <div>
+        <ngx-charts-bar-vertical
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [roundDomains]=true
+            [yAxisLabel]="yAxisLabel">     
+         </ngx-charts-bar-vertical>
+    </div>
+</div>

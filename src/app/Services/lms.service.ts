@@ -77,4 +77,16 @@ export class LmsService{
     })
   }
 
+  getBarGraphData(){
+    return this.books.reduce((acc:any,curr)=>{
+      if(acc[curr.genre] !== undefined){
+       acc[curr.genre] = ++acc[curr.genre]
+      }else{
+       acc[curr.genre] = 1;
+      }
+      return acc;
+   },{});
+   
+  }
+
 }

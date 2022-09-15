@@ -9,7 +9,7 @@
         <p>
           <button mat-button color="primary" [matMenuTriggerFor]="genre" class="sidebarButton">Genre</button>
           <mat-menu #genre="matMenu">
-            <a  routerLink="" mat-menu-item [matMenuTriggerFor]="genrelist" >Genre List</a>
+            <a  routerLink="genres" mat-menu-item [matMenuTriggerFor]="genrelist" >Genre List</a>
           </mat-menu>
           <mat-menu #genrelist="matMenu">
             <a *ngFor="let genre of genres" routerLink="{{genre}}/booklist" mat-menu-item>{{genre}}</a>

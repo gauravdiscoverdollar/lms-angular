@@ -24,3 +24,20 @@
     left: -25px;
     top: -3px;
 }
+
+.container{
+    text-align: -webkit-center;
+}
+
+.barGraphContainer{
+    height: 500px;
+    width: 80%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.lineGraphContainer{
+    height: 500px;
+    width: 80%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
