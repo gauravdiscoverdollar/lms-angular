@@ -6,6 +6,7 @@ export interface lms {
     addedBy : string,
     price : number,
     lastViewed : Date,
+    createdAt : Date,
     favourite : boolean,
     archive : boolean,
     desc : string

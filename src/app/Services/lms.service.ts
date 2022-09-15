@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { lms } from '../Types/lmsInterface';
 import { AuthService } from './auth.service';
 
@@ -8,6 +9,7 @@ import { AuthService } from './auth.service';
 export class LmsService{
   private books! : lms[];
   private genres : object = ['Self-help','Buisness','Personal-finance','Historical','Thriller','Romance'];
+  bookListChanged$ = new BehaviorSubject<any>(true);
 
   constructor(private _auth: AuthService) { 
    
@@ -36,6 +38,7 @@ export class LmsService{
   
   addBookToBookList(book:lms){
     this.books.push(book);
+    this.bookListChanged$.next(false);
     localStorage.setItem('books',JSON.stringify(this.books));
   }
 
@@ -118,6 +121,31 @@ export class LmsService{
       }
       return acc;
    },{});
+  }
+
+
+  getLineGraphData(){
+    // const now = new Date();
+    // let dates:any = [];
+    // for(let i = 0; i<7;i++){
+    //   dates.push(new Date(now.getTime() - i * 24 * 60 * 60 * 1000).toISOString())
+    // }
+    // console.log("Dates",dates);
+    // let linegraphbar  = this.books.filter((val)=>{
+    //   console.log("VAl Dat",new Date(val.createdAt).toISOString())
+    //   return dates.includes(val.createdAt)
+    // })
+    // console.log("Line Grapgh",linegraphbar,dates);
+
+
+    return this.books.reduce((acc:any,curr)=>{
+      if(acc[new Date(curr.createdAt).toLocaleDateString()] !== undefined){
+        acc[new Date(curr.createdAt).toLocaleDateString()] = ++acc[new Date(curr.createdAt).toLocaleDateString()];
+      }else{
+        acc[new Date(curr.createdAt).toLocaleDateString()] = 1;
+      }
+      return acc;
+    },{});
   }
 
 

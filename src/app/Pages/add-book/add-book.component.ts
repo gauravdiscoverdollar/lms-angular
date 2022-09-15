@@ -38,6 +38,7 @@ export class AddBookComponent implements OnInit {
     }
     book.addedBy = this._auth.user.name;
     book.lastViewed = new Date;
+    book.createdAt = new Date;
     book.archive = false;
     book.bookId = this.bookId;
     book.desc = "Published in Year: " + book.desc;

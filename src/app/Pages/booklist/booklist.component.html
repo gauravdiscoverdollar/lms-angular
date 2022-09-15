@@ -8,28 +8,30 @@
     </div>
     <div class="booklist">
         <h2 *ngIf="booklist.length == 0" style="margin-left: 25px;color: brown;">No Books Available</h2>
-        <a routerLink="/view/book/{{book.bookId}}" class="bookBox" *ngFor="let book of booklist">
-            <div class="booktitle">
-                {{book.bookName}}
-            </div>
-            <div class="bookAuthor">
-                ~ {{book.bookAuthor}} 
-            </div>
-            <div class="desc">
-                <span>
-                    {{book.desc}}
-                </span>
-            </div>
-            <div class="bookPoster">
-                <img src="./../../../assets/images/poster.png" alt="poster"/>
-            </div>
-            <img src="https://cdn-icons-png.flaticon.com/512/2698/2698378.png" alt="price-tag" class="priceTag">
-            <span class="price">₹ {{book.price}}</span>
+        <div class="bookBox" *ngFor="let book of booklist">
+            <a routerLink="/view/book/{{book.bookId}}" style="text-decoration: none;color:black">
+                <div class="booktitle">
+                    {{book.bookName}}
+                </div>
+                <div class="bookAuthor">
+                    ~ {{book.bookAuthor}} 
+                </div>
+                <div class="desc">
+                    <span>
+                        {{book.desc}}
+                    </span>
+                </div>
+                <div class="bookPoster">
+                    <img src="./../../../assets/images/poster.png" alt="poster"/>
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/2698/2698378.png" alt="price-tag" class="priceTag">
+                <span class="price">₹ {{book.price}}</span>
+            </a>
             <button class="archive" matTooltip="Move this book to Archive." (click)="moveToArchive(book.bookId)">
                 <mat-icon >archive</mat-icon>
             </button>
 
-        </a>
+        </div>
         
     </div>
     

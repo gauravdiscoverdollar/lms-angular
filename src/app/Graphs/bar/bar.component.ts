@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LmsService } from 'src/app/Services/lms.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { LmsService } from 'src/app/Services/lms.service';
 })
 export class BarComponent implements OnInit {
   single = [{}] ;
+  bookListChangesSubcription : Subscription = new Subscription() ;
+
   
   view: any = [600, 400];
   showXAxis = false;
@@ -28,23 +31,24 @@ export class BarComponent implements OnInit {
   };
   constructor(private _lms: LmsService) {
     Object.assign(this, this.single);
-    this.single = []
-    let data : any =  this._lms.getBarGraphData();
-    // console.log("Bar Graph",data)
-    for(let key in data){
-      let d:any = {
-        name : key,
-        value : data[key]
-      }
-      this.single.push(d);
-    }
+   
     // console.log("singles",this.single)
    }
-   
+ 
   
 
   ngOnInit(): void {
-    
+    this.bookListChangesSubcription = this._lms.bookListChanged$.subscribe(data => {
+      this.single = []
+      let genreData : any =  this._lms.getBarGraphData();
+      for(let key in genreData){
+        let d:any = {
+          name : key,
+          value : genreData[key]
+        }
+        this.single.push(d);
+      }
+    })
   }
 
 }

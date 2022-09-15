@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LmsService } from 'src/app/Services/lms.service';
 
 @Component({
   selector: 'app-line',
@@ -9,26 +11,11 @@ export class LineComponent implements OnInit {
   single = [
     {
       "name": "Book Added",
-      "series": [
-        {
-          "name": "10 July 2022",
-          "value": "10"
-        },
-        {
-          "name": "11 July 2022",
-          "value": "5"
-        },
-        {
-          "name": "12 July 2022",
-          "value": "17"
-        },
-        {
-          "name": "13 July 2022",
-          "value": "6"
-        }
-      ],
+      "series": [{}],
     }
   ];
+  bookListChangesSubcription : Subscription = new Subscription() ;
+
   
   view: any = [700, 400];
   showXAxis = true;
@@ -45,12 +32,24 @@ export class LineComponent implements OnInit {
   colorScheme:any = {
     domain: ['#3f51b5']
   };
-   constructor() {
+   constructor(private _lms: LmsService) {
     Object.assign(this, this.single)
    }
+  
 
   ngOnInit(): void {
-
+    
+    this.bookListChangesSubcription = this._lms.bookListChanged$.subscribe(data => {
+      this.single[0].series = [];
+      let linedata : any =  this._lms.getLineGraphData();
+      for(let key in linedata){
+        let d:any = {
+          name : key,
+          value : linedata[key]
+        }
+        this.single[0].series.push(d);
+      }
+    })
   }
 
 }
