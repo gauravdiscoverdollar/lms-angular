@@ -7,6 +7,7 @@
         </div>
     </div>
     <div class="booklist">
+        <h2 *ngIf="booklist.length == 0" style="margin-left: 25px;color: brown;">No Books Available</h2>
         <div class="bookBox" *ngFor="let book of booklist">
             <button *ngIf="!archive" mat-icon-button matTooltip="Add to Favourite." class="favourite">
                 <mat-icon >bookmark_add</mat-icon>

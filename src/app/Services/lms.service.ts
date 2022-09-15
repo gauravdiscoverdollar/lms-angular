@@ -86,7 +86,22 @@ export class LmsService{
       }
       return acc;
    },{});
-   
+  }
+
+
+  getLastBookListByTime(time:number){
+    let lastTime:number;
+    if(time==0){
+      lastTime =10 * 60 * 1000; 
+    }else if(time==1){
+      lastTime =  60 * 60 * 1000;
+    }else if(time==2){
+      lastTime = 5 * 60 * 60 * 1000;
+    }else{
+      return;
+    }
+    let booklist = this.books.filter((item) => (new Date(item.lastViewed).getTime() > Date.now() - lastTime));
+    console.log("Booklist Last",booklist)
   }
 
 }

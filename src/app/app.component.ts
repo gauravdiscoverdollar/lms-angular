@@ -25,7 +25,7 @@ export class AppComponent implements OnInit,OnDestroy{
   ngOnInit(): void {
     this._auth.getCurrentUser();
     this.checkLoginSubscription =  this._auth.checkLoggedIn.subscribe(data=>{
-      console.log("AppTrigger",data)
+      // console.log("AppTrigger",data)
       this.isLoggedIn = data;
       this.genres = this._lms.getGenresList();
       this._lms.getBookListFromLocalStorage();

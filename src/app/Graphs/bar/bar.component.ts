@@ -30,7 +30,7 @@ export class BarComponent implements OnInit {
     Object.assign(this, this.single);
     this.single = []
     let data : any =  this._lms.getBarGraphData();
-    console.log("Bar Graph",data)
+    // console.log("Bar Graph",data)
     for(let key in data){
       let d:any = {
         name : key,
@@ -38,7 +38,7 @@ export class BarComponent implements OnInit {
       }
       this.single.push(d);
     }
-    console.log("singles",this.single)
+    // console.log("singles",this.single)
    }
    
   

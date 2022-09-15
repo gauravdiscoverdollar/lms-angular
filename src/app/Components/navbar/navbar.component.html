@@ -10,8 +10,8 @@
     <button mat-button [matMenuTriggerFor]="menu"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <p mat-menu-item class="center">Gaurav Singh</p>
-      <p mat-menu-item class="center">gaurav.singh323@gmail.com</p>
+      <p mat-menu-item class="center">{{name}}</p>
+      <p mat-menu-item class="center">{{email}}</p>
       <button mat-menu-item class="center" (click)="logout()">Sign Out</button>
     </mat-menu>
 </mat-toolbar>

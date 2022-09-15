@@ -46,7 +46,7 @@ export class AuthService {
     users = JSON.parse(users);
     
     let currentUser:any = users[parseInt(currentUserId)];
-    console.log("Ckksk",currentUser)
+    // console.log("Ckksk",currentUser)
     if(currentUser){
       this.user = currentUser;
       this.isLoggedIn = true;
